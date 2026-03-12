@@ -10,9 +10,14 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <!-- Compile bằng Java 17 -->
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.release>17</maven.compiler.release>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- JavaFX version -->
         <javafx.version>21</javafx.version>
     </properties>
 
@@ -40,13 +45,13 @@
     <build>
         <plugins>
 
-            <!-- Compiler -->
+            <!-- Compiler plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
-                    <release>21</release>
+                    <release>17</release>
                 </configuration>
             </plugin>
 
@@ -64,7 +69,7 @@
                 </configuration>
             </plugin>
 
-            <!-- JavaFX plugin  -->
+            <!-- JavaFX plugin -->
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
@@ -74,7 +79,7 @@
                 </configuration>
             </plugin>
 
-            <!-- FAT JAR  -->
+            <!-- FAT JAR (Shade) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -96,7 +101,6 @@
                     </execution>
                 </executions>
             </plugin>
-
 
         </plugins>
     </build>
